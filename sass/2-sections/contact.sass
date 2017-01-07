@@ -1,12 +1,17 @@
 .section#contact
 	+clearfix
 
+	.wrapper
+		padding: 0 3rem
+		+tablet_and_mobile
+			padding: 0rem 1rem
+
 	.box
 		width: 21rem
-		border: 1px solid red
 		position: relative
-		padding-right: 3rem
 		color: $color-2
+		+mobile
+			width: 100%
 
 		h3
 			padding-top: 0.5rem
@@ -18,22 +23,58 @@
 		img
 			position: absolute
 			top: 0
-			right: 0
+			right: -3rem
 			width: 2.5rem
 			height: 2.5rem
 
 	.leftBox
-		width: 29px
+		width: 26rem
 		float: right
+		padding-right: 3rem
+		+tablet
+			width: 21rem
+		+mobile
+			width: 100%
+			border-top: 1px solid rgba(0,0,0,0.2)
+			padding-top: 2rem
 
 	.box.mail
 		margin-bottom: 2rem
 
 	.rightBox
-		width: 38rem
+		width: 35rem
 		margin-left: 4rem
 		float: right
-		
+		+tablet
+			width: 14rem
+			margin-left: 7rem
+		+mobile
+			width: 100%
+			float: none
+			height: auto
+			margin-bottom: 2rem
+
+		.input_container
+			margin-top: 1rem
+
 		label
 			display: inline-block
-			width: 8rem
+			width: 6.5rem
+			+tablet_and_mobile
+				display: block
+				width: 100%
+				margin-bottom: 0.5rem
+
+		input
+			border: none
+			border-bottom: 1px solid $color-8
+			outline: none
+			box-shadow: none
+			width: 16rem
+			height: 2.5rem
+			background-color: lighten($color-9,4%)
+			padding: 0 1rem
+			+tablet
+				width: 14rem
+			+mobile
+				width: 100%

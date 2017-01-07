@@ -1,13 +1,8 @@
 $(document).ready(function(){
 
+	setup_hero_image();
+
 	setup_navigation();
-
-	setup_get_in_touch_link();
-
-	setup_slider();
-
-	// fix long contact section text
-	fix_long_contact_text();
 
 	setup_print_view(); // add ?print to see print view
 });
@@ -41,72 +36,6 @@ function simulateLoading(){
 	}, 2000);
 }
 
-function setupGauges() {
-	// circle-1
-	var opts = {
-		lines: 12, // The number of lines to draw
-		angle: 0.35, // The length of each line
-		lineWidth: 0.05, // The line thickness
-		limitMax: 'true',   // If true, the pointer will not go past the end of the gauge
-		colorStop: '#71adbe',    // just experiment with them
-		strokeColor: '#f0eddd',   // to see which ones work best for you
-		generateGradient: false
-	};
-	var target = document.getElementById('circle-1'); // your canvas element
-	var gauge = new Donut(target).setOptions(opts); // create sexy gauge!
-	gauge.maxValue = 10; // set max gauge value
-	gauge.animationSpeed = 60; // set animation speed (32 is default value)
-	gauge.set(9); // set actual value
-
-	// circle-2
-	var opts = {
-		lines: 12, // The number of lines to draw
-		angle: 0.35, // The length of each line
-		lineWidth: 0.05, // The line thickness
-		limitMax: 'true',   // If true, the pointer will not go past the end of the gauge
-		colorStop: '#71adbe',    // just experiment with them
-		strokeColor: '#f0eddd',   // to see which ones work best for you
-		generateGradient: false
-	};
-	var target = document.getElementById('circle-2'); // your canvas element
-	var gauge = new Donut(target).setOptions(opts); // create sexy gauge!
-	gauge.maxValue = 10; // set max gauge value
-	gauge.animationSpeed = 60; // set animation speed (32 is default value)
-	gauge.set(10); // set actual value
-
-	// circle-3
-	var opts = {
-		lines: 12, // The number of lines to draw
-		angle: 0.35, // The length of each line
-		lineWidth: 0.05, // The line thickness
-		limitMax: 'true',   // If true, the pointer will not go past the end of the gauge
-		colorStop: '#71adbe',    // just experiment with them
-		strokeColor: '#f0eddd',   // to see which ones work best for you
-		generateGradient: false
-	};
-	var target = document.getElementById('circle-3'); // your canvas element
-	var gauge = new Donut(target).setOptions(opts); // create sexy gauge!
-	gauge.maxValue = 10; // set max gauge value
-	gauge.animationSpeed = 60; // set animation speed (32 is default value)
-	gauge.set(10); // set actual value
-
-	// circle-4
-	var opts = {
-		lines: 12, // The number of lines to draw
-		angle: 0.35, // The length of each line
-		lineWidth: 0.05, // The line thickness
-		limitMax: 'true',   // If true, the pointer will not go past the end of the gauge
-		colorStop: '#71adbe',    // just experiment with them
-		strokeColor: '#f0eddd',   // to see which ones work best for you
-		generateGradient: false
-	};
-	var target = document.getElementById('circle-4'); // your canvas element
-	var gauge = new Donut(target).setOptions(opts); // create sexy gauge!
-	gauge.maxValue = 10; // set max gauge value
-	gauge.animationSpeed = 60; // set animation speed (32 is default value)
-	gauge.set(8); // set actual value
-}
-
 function scrollControl(element_selector){
 	w = $(window).scrollTop() + $(window).height();
 	e = $(element_selector).offset().top + 290;
@@ -118,17 +47,16 @@ function scrollControl(element_selector){
 	}
 }
 
-function fix_long_contact_text(){
-	if(isMobile()){
-		$('#email_link').html('Email me');
-		$('#facebook_link').html('Hit me on facebook');
-	}
+function setup_hero_image(){
+	$('.hero-image a.cta').click(function(){
+		$(window).scrollTo('#contact', 800);
+	});
 }
 
 function setup_navigation(){
 	$('.burger-btn').click(function(){
 		$(this).toggleClass('is-open');
-		$('#nav').toggleClass('hidden');
+		$('#navigation').toggleClass('is-visible');
 	});
 
 	$('#nav ul li').click(function(){
@@ -136,24 +64,6 @@ function setup_navigation(){
 		$(window).scrollTo('#section-' + section_num, 300 * section_num, {offset:function(){return {top:-35};}});
 		$('.burger-btn').removeClass('is-open');
 		$('#nav').addClass('hidden');
-	});
-}
-
-function setup_get_in_touch_link(){
-	$('#get_in_touch_link').click(function(){
-		$(window).scrollTo('#scroller', 800);
-	});
-}
-
-function setup_slider(){
-	$('.slider').slick({
-	  infinite: false,
-	  dots: true,
-	  speed: 650,
-	  //draggable: false,
-	  swipeToSlide: true,
-	  responsive: [{breakpoint: 1168},{breakpoint: 768}],
-	  adaptiveHeight: true
 	});
 }
 

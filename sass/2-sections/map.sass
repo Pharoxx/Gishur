@@ -1,0 +1,54 @@
+.section#map
+	+clearfix
+	
+	color: $color-9
+
+	h2.section-title
+		color: $color-9
+
+	.box
+		width: 25rem
+		float: right
+		+tablet
+			width: 20rem
+		+mobile
+			float: none
+			width: 100%
+	
+	iframe
+		float: right
+		width: 42rem
+		margin-right: 4rem
+		border: none
+		+tablet
+			width: 22rem
+			margin-right: 2rem
+			height: 22rem
+		+mobile
+			float: none
+			width: 100%
+			margin-right: 0
+			margin-top: 2rem
+			height: 18rem
+
+	.places
+		h3
+			margin-bottom: 1rem
+		p
+			position: relative
+			padding-right: 2rem
+			padding-top: 0.1275rem
+			height: 2rem
+		p:before
+			content: ' '
+			display: block
+			position: absolute
+			top: 0
+			right: 0
+			width: 1.5rem
+			height: 1.5rem
+			background-image: url('img/location.png')
+			background-size: contain
+			background-repeat: no-repeat
+			background-origin: center
+			opacity: 0.4

@@ -14,11 +14,32 @@
 		bottom: 0
 		right: 0
 		width: 39%
-
+		+tablet
+			width: 65%
+			z-index: 1
+			opacity: 0.2
+		+mobile
+			width: 100%
+			z-index: 1
+			opacity: 0.2
 	p
 		float: left
 		width: 38rem
 		color: darken($color-9, 5%)
+		+tablet
+			float: none
+			z-index: 2
+			position: relative
+			padding-right: 3rem
+			padding-left: 3rem
+			width: 100%
+		+mobile
+			float: none
+			z-index: 2
+			position: relative
+			padding-right: 0rem
+			padding-left: 0rem
+			width: 100%
 
 		b
 			font-size: 1.25rem
@@ -32,3 +53,7 @@
 		clear: both
 		margin-left: 4rem
 		margin-top: 2rem
+		+tablet
+			float: left
+			margin-left: 0
+			margin-top: 3.5rem

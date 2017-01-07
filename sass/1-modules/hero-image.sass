@@ -2,6 +2,8 @@
 	background-color: $color-2
 	position: relative
 	height: 33rem
+	+mobile
+		height: 27rem
 
 	.wrapper
 		height: 100%
@@ -9,6 +11,17 @@
 		background-position: center left
 		background-size: contain
 		background-repeat: no-repeat
+		+mobile
+			background-size: cover
+			&:before
+				content: ' '
+				display: block
+				position: absolute
+				top: 0
+				left: 0
+				width: 100%
+				height: 100%
+				background-color: rgba($color-2, 0.6)
 
 
 	.mid-box
@@ -20,8 +33,10 @@
 		font: normal 4rem/110% $font-sec
 		color: $color-9
 		margin-bottom: 0.5rem
+		+mobile
+			font: normal 3rem/100% $font-sec
 	p
 		color: $color-9
 		margin-bottom: 2rem
-	a
-		color: $color-9
+		+mobile
+			margin-top: 1.5rem
