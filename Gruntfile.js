@@ -44,7 +44,7 @@ module.exports = function(grunt){
 		},
 		concat: {
 			dist: {
-				src: ["js/jQuery.js", "js/functions.js", "js/scripts.js", "js/gauge/gauge.js", "js/slick/slick.min.js"],
+				src: ["js/jQuery.js", "js/functions.js", "js/disable_scrolling.js", "js/scripts.js"],
 				dest: "all_js.js"
 			}
 		},

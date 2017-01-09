@@ -4,6 +4,8 @@ $(document).ready(function(){
 
 	setup_navigation();
 
+	setup_faq();
+
 	setup_print_view(); // add ?print to see print view
 });
 
@@ -59,11 +61,16 @@ function setup_navigation(){
 		$('#navigation').toggleClass('is-visible');
 	});
 
-	$('#nav ul li').click(function(){
-		section_num = $(this).index() + 1;
-		$(window).scrollTo('#section-' + section_num, 300 * section_num, {offset:function(){return {top:-35};}});
-		$('.burger-btn').removeClass('is-open');
-		$('#nav').addClass('hidden');
+	$('#navigation ul li').click(function(e){
+
+		the_a = $(this).children('a');
+		the_href = the_a.attr('href');
+
+		// if its a scrollTo link
+		if(the_href.substr(0,1) == '#') {
+			$(window).scrollTo(the_href, 1000);
+			e.preventDefault();
+		}
 	});
 }
 
@@ -88,6 +95,24 @@ function setup_print_view(){
    if(getUrlParameter('print')) {
       $('body').addClass('print-view');
    }
+
+}
+
+function setup_faq() {
+	$('#faq .faq-container ul li').click(function(){
+		the_title = $(this).html();
+		$('#faq-popup h3').html(the_title);
+		$('#faq #blanket, #faq #faq-perspective, #faq #faq-popup').removeClass('hidden');
+		disableScroll();
+	});
+
+	$('#faq #close-btn').click(function(){
+		$('#faq #faq-popup').addClass('hidden');
+		setTimeout(function(){
+			$('#faq #faq-perspective, #faq #blanket').addClass('hidden');
+		}, 300);
+		enableScroll();
+	});
 
 }
 
