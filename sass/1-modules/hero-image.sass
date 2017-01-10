@@ -40,3 +40,32 @@
 		margin-bottom: 2rem
 		+mobile
 			margin-top: 1.5rem
+
+	.phone-link, .mail-link
+		position: absolute
+		right: 0
+		height: 1rem
+		padding-right: 2rem
+		color: lighten($color-2, 20%)
+		cursor: pointer
+		text-decoration: none
+		+mobile
+			right: 1rem
+		&:before
+			content: ' '
+			position: absolute
+			width: 1.5rem
+			height: 1.5rem
+			top: -0.25rem
+			right: 0
+			opacity: 0.4
+
+	.phone-link
+		bottom: 4rem
+		&:before
+			background: url('img/phone.png') center/contain no-repeat
+
+	.mail-link
+		bottom: 2rem
+		&:before
+			background: url('img/email.png') center/contain no-repeat
