@@ -1,26 +1,14 @@
-.section#faq
-
-	.wrapper
-		+clearfix
+.section#faq_old
 
 	h2.section-title
 		color: $color-2
 	
-	.faqContainer
-		float: right
-		width: 50%
-		position: relative
-		text-align: center
-		+mobile
-			float: none
-			width: 100%
-
+	.faq-container
 		ul
-			display: inline-block
-			max-width: 100%
-			+mobile
-				display: block
-
+			+clearfix
+			+tablet
+				width: auto
+				margin: 0 auto
 		li
 			list-style-type: none
 			font-size: 1rem
@@ -29,13 +17,15 @@
 			margin: 0.25rem 0
 			position: relative
 			cursor: pointer
-			width: auto
-			max-width: 29rem
-			text-align: right
+			float: right
+			width: 32rem
 			+tablet
-				max-width: 20.5rem
+				width: 36rem
+				float: none
+				margin-right: 4rem
 			+mobile
-				max-width: 100%
+				width: auto
+				float: none
 
 			&:before
 				width: 100%

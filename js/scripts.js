@@ -99,7 +99,7 @@ function setup_print_view(){
 }
 
 function setup_faq() {
-	$('#faq .faq-container ul li').click(function(){
+	$('#faq .faqContainer ul li').click(function(){
 		the_title = $(this).html();
 		$('#faq-popup h3').html(the_title);
 		$('#faq #blanket, #faq #faq-perspective, #faq #faq-popup').removeClass('hidden');
