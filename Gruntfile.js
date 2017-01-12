@@ -61,7 +61,8 @@ module.exports = function(grunt){
 			},
 			your_target: {
 				files: {
-					"all_in_one.html" : ["index.html"]
+					"build/index.html" : ["index.html"],
+					"build/single.html" : ['single.html']
 				} 
 			}
 		},

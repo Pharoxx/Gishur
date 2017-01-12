@@ -61,8 +61,10 @@
 			font-size: 1rem
 			color: $color-9
 
+	
 	ul li a:hover, ul li a:visited:hover
-		color: $color-4
+		+desktop
+			color: $color-4
 
 	ul li a:after
 		content: ' '
@@ -76,5 +78,14 @@
 		transition: width 180ms ease-out
 
 	ul li a:hover:after, ul li a:visited:hover:after
-		width: 100%
+		+desktop
+			width: 100%
 		
+
+/* Styles for dark navigation - inner pages */
+#navigation.dark
+	background-color: $color-2
+	+mobile
+		background-color: $color-3
+	ul li a, ul li a:visited
+		color: $color-9
