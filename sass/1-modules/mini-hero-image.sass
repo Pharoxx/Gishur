@@ -1,9 +1,9 @@
-.hero-image
+.mini-hero-image
 	background-color: $color-3
 	position: relative
-	height: 30rem
+	height: 18rem
 	+mobile
-		height: 27rem
+		height: auto
 
 	.wrapper
 		height: 100%
@@ -28,7 +28,11 @@
 		position: absolute
 		top: 50%
 		transform: translateY(-50%)
-		padding-bottom: 2rem
+		+mobile
+			position: relative
+			padding: 5rem 0 2rem 0
+			transform: none
+			top: auto
 
 	h1
 		font: normal 4rem/110% $font-sec
@@ -43,8 +47,8 @@
 			margin-top: 1.5rem
 
 	.phone-link, .mail-link
-		position: absolute
-		right: 0
+		display: block
+		position: relative
 		height: 1rem
 		padding-right: 2rem
 		color: lighten($color-3, 20%)
@@ -62,11 +66,10 @@
 			opacity: 0.4
 
 	.phone-link
-		bottom: 4rem
+		margin-bottom: 1rem
 		&:before
 			background: url('img/phone.png') center/contain no-repeat
 
 	.mail-link
-		bottom: 2rem
 		&:before
 			background: url('img/email.png') center/contain no-repeat

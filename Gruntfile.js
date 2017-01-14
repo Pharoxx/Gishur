@@ -62,7 +62,8 @@ module.exports = function(grunt){
 			your_target: {
 				files: {
 					"build/index.html" : ["index.html"],
-					"build/single.html" : ['single.html']
+					"build/single.html" : ['single.html'],
+					"build/articles.html" : ['articles.html']
 				} 
 			}
 		},
