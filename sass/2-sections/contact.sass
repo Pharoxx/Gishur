@@ -47,6 +47,8 @@
 
 	.box.form
 		width: 22rem
+		+tablet
+			margin-bottom: 5rem
 		+mobile
 			width: 100%
 			float: none
@@ -141,3 +143,36 @@
 			+mobile
 				width: 80%
 				margin-right: 10%
+
+	.message
+		position: relative
+		margin-top: 1.75rem
+		+mobile
+			height: 4rem
+		img
+			position: absolute
+			top: 0
+			right: 0
+			width: 3.5rem
+			height: 3.5rem
+		p
+			background-color: darken($color-9, 15%)
+			color: darken($color-7, 10%)
+			padding: 0.75rem
+			position: relative
+			border-radius: 0.25rem
+			position: absolute
+			top: 0.5rem
+			right: 4.5rem
+			+mobile
+				font-size: 0.875rem
+			&:before
+				content: ' '
+				position: absolute
+				width: 0
+				height: 0
+				top: 0.75rem
+				right: -0.5rem
+				border-top: 0.5rem solid transparent
+				border-bottom: 0.5rem solid transparent
+				border-left: 0.5rem solid darken($color-9, 15%)
