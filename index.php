@@ -1,3 +1,5 @@
+<?php require_once "/wp-content/themes/gishur/php/functions.php"; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,19 +7,15 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>PreProd</title>
 	<link href="https://fonts.googleapis.com/css?family=Assistant:400,600&amp;subset=hebrew" rel="stylesheet">
-	<!-- build:css inline -->
-		<link rel="stylesheet" href="styles.css" />
-	<!-- /build -->
-
-	<!-- build:js inline all_js.js -->
-		<script src="js/jQuery.js"></script>
-		<script src="js/functions.js"></script>
-		<script src="js/disable_scrolling.js"></script>
-		<script src="js/scripts.js"></script>
-	<!-- /build -->
+	<link rel="stylesheet" href="<?php echo base_dir() . 'styles.css'; ?>" />
+	<script src="<?php echo base_dir() . 'js/jQuery.js'; ?>"></script>
+	<script src="<?php echo base_dir() . 'js/functions.js'; ?>"></script>
+	<script src="<?php echo base_dir() . 'js/disable_scrolling.js'; ?>"></script>
+	<script src="<?php echo base_dir() . 'js/scripts.js'; ?>"></script>
 
 </head>
 <body>
+
 	<style>
 		#loader {
 			position: fixed;
@@ -41,6 +39,12 @@
 		<img src="img/loader.gif" alt="loading..." />
 	</div>
 
+	<div id="php_tests">
+		<?php
+			print_contact_map_places();
+		?>
+	</div>
+
 	<div class="burger-btn">
 		<span></span>
 		<span></span>
@@ -55,96 +59,113 @@
 
 	<div id="navigation">
 		<div class="wrapper">
-			<ul>
-				<li>
-					<a href="#features">נושאים ותחומי עיסוק</a>
-				</li>
-				<li>
-					<a href="#about_me">קצת עליי</a>
-				</li>
-				<li>
-					<a href="#contact">אולי נדבר?</a>
-				</li>
-				<li>
-					<a href="#articles">מאמרים</a>
-				</li>
-				<li>
-					<a href="#faq">שאלות ותשובות</a>
-				</li>
-				<li>
-					<a href="#testimonials">אמרו עליי</a>
-				</li>
-			</ul>
+			<?php
+				$args = [
+					"menu" => "ניווט ראשי",
+					"menu_class" => 'wp_menu',
+					"menu_id" => "wp_nav",
+					"container" => ""
+
+				];
+				wp_nav_menu($args);
+			?>
 		</div>
 	</div>
 	
-	<div class="hero-image">
-		<div class="wrapper">
+	<div class="hero-image" style="background-color: <?php print_option('hp_banner_bgcolor'); ?>;">
+		<div class="wrapper" style="background-image: url('<?php print_option('hp_banner_image'); ?>');">
 			<div class="mid-box">
-				<h1>גישור ברגישות</h1>
+				<h1>
+					<?php print_option('hp_banner_h1'); ?>
+				</h1>
 				<p class="tagline">
-					לורם איפסום דולור סיט אמת, לורם איפסום דולור סיט אמת.
-					<br/>
-					לורם איפסום דולור סיט אמת.
+					<?php print_option('hp_banner_p'); ?>
 				</p>
-				<a class="cta color-9">בוא נדבר</a>
+				<a href="<?php print_option('hp_banner_btn_link'); ?>" class="cta color-9">
+					<?php print_option('hp_banner_btn_text'); ?>
+				</a>
 			</div>
 			<a href="tel:0543846915" target="_blank" class="phone-link">054-384-6915</i>
 			<a href="mailto:somemail@somewhere.com" target="_blank" class="mail-link">somemail@somewhere.com</a>
 		</div>
 	</div>
 
-	<div id="features" class="section bg-color-10">
+	<div id="features" class="section" style="background-color: <?php print_option('hp_featuers_bgcolor'); ?>">
 		<div class="wrapper">
-			<h2 class="section-title">במה אני עוסקת?</h2>
+			<h2 class="section-title"><?php print_option('hp_features_title'); ?></h2>
 			
 			<div class="four-boxes">
 				<div class="box">
-					<h3>לורם איפסום</h3>
-					<p>קוויז דומור ליאמום בלינך רוגצה. לפמעט מוסן מנת. נולום ארווס סאפיאן - פוסיליס קוויס, אקווזמן קוואזי במר מודוף. אודיפו בלאסטיק מונופץ קליר</p>
-					<a href="">קולורס מונפרד אדנדום</a>
+					<h3>
+						<?php print_option('hp_features_box1_title'); ?>
+					</h3>
+					<p>
+						<?php print_option('hp_features_box1_text'); ?>
+					</p>
+					<a href="<?php print_option('hp_features_box1_link_href'); ?>">
+						<?php print_option('hp_features_box1_link_text'); ?>
+					</a>
 				</div>
 				<div class="box">
-					<h3>לורם איפסום</h3>
-					<p>קוויז דומור ליאמום בלינך רוגצה. לפמעט מוסן מנת. נולום ארווס סאפיאן - פוסיליס קוויס, אקווזמן קוואזי במר מודוף. אודיפו בלאסטיק מונופץ קליר</p>
-					<a href="">קולורס מונפרד אדנדום</a>
+					<h3>
+						<?php print_option('hp_features_box2_title'); ?>
+					</h3>
+					<p>
+						<?php print_option('hp_features_box2_text'); ?>
+					</p>
+					<a href="<?php print_option('hp_features_box2_link_href'); ?>">
+						<?php print_option('hp_features_box2_link_text'); ?>
+					</a>
 				</div>
 				<div class="box">
-					<h3>לורם איפסום</h3>
-					<p>קוויז דומור ליאמום בלינך רוגצה. לפמעט מוסן מנת. נולום ארווס סאפיאן - פוסיליס קוויס, אקווזמן קוואזי במר מודוף. אודיפו בלאסטיק מונופץ קליר</p>
-					<a href="">קולורס מונפרד אדנדום</a>
+					<h3>
+						<?php print_option('hp_features_box3_title'); ?>
+					</h3>
+					<p>
+						<?php print_option('hp_features_box3_text'); ?>
+					</p>
+					<a href="<?php print_option('hp_features_box3_link_href'); ?>">
+						<?php print_option('hp_features_box3_link_text'); ?>
+					</a>
 				</div>
 				<div class="box">
-					<h3>לורם איפסום</h3>
-					<p>קוויז דומור ליאמום בלינך רוגצה. לפמעט מוסן מנת. נולום ארווס סאפיאן - פוסיליס קוויס, אקווזמן קוואזי במר מודוף. אודיפו בלאסטיק מונופץ קליר</p>
-					<a href="">קולורס מונפרד אדנדום</a>
+					<h3>
+						<?php print_option('hp_features_box4_title'); ?>
+					</h3>
+					<p>
+						<?php print_option('hp_features_box4_text'); ?>
+					</p>
+					<a href="<?php print_option('hp_features_box4_link_href'); ?>">
+						<?php print_option('hp_features_box4_link_text'); ?>
+					</a>
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<div id="about_me" class="section bg-color-3">
-		<div class="wrapper">
-			<h2 class="section-title right-side">כותרת כותרת</h2>
+	<div id="about_me" class="section" style="background-color: <?php print_option('hp_aboutme_bgcolor'); ?>">
+		<div class="wrapper" style="background-image: url('<?php print_option('hp_aboutme_image'); ?>');">
+			<h2 class="section-title right-side">
+				<?php print_option('hp_aboutme_title'); ?>
+			</h2>
 			<p>
-				<b>לורם איפסום דולור סיט אמט</b>
-				קונסקטורר אדיפיסינג אלית לפרומי בלוף קינץ תתיח לרעח.<br/> לת צשחמי צש בליא, מנסוטו צמלח לביקו ננבי, צמוקו בלוקריה שיצמה ברורק.<br/> סחטיר בלובק.<br/>
-				<b>תצטנפל בלינדו למרקל</b>
-				אס לכימפו, דול, צוט ומעיוט - לפתיעם ברשג - ולתיעם גדדיש.<br/> קוויז דומור ליאמום בלינך רוגצה.<br/> לפמעט מוסן מנת.<br/> הועניב היושבב שערש שמחויט - שלושע ותלברו חשלו שעותלשך וחאית נובש ערששף.<br/>
-				<b>קולורס מונפרד אדנדום סילקוף</b>
-				מרגשי ומרגשח עמחליף קולורס מונפרד אדנדום סילקוף, מרגשי ומרגשח.<br/> עמחליף להאמית קרהשק סכעיט דז מא, מנכם למטכין נשואי מנורךגולר מונפרר סוברט לורם שבצק יהול, לכנוץ בעריר גק ליץ, ושבעגט.<br/> גולר מונפרר סוברט לורם שבצק יהול, לכנוץ בעריר גק ליץ, ושבעגט ליבם סולגק.
-				<a href="" class="cta color-9">לורם איפסום דולור</a>
+				<?php print_option('hp_aboutme_texts'); ?>
+				<a href="<?php print_option('hp_aboutme_btn_link'); ?>" class="cta color-9">
+					<?php print_option('hp_aboutme_btn_text'); ?>
+				</a>
 			</p>
 		</div>
 	</div>
 
-	<div class="section bg-color-9" id="contact">
+	<div class="section" id="contact" style="background-color: <?php print_option('hp_contact_bgcolor'); ?>;">
 		<div class="wrapper">
-
-			<h2 class="section-title">לורם איפסום</h2>
-
+			<h2 class="section-title">
+				<?php print_option('hp_contact_title'); ?>
+			</h2>
 			<div class="box form">
-				<h3>רוצה שאני אתקשר אליך?</h3>
+				<h3>
+					<?php print_option('hp_contact_form_title'); ?>
+				</h3>
 				<div class="input_container">
 					<label for="input_name">שם פרטי:</label>
 					<input type="text" />
@@ -159,47 +180,56 @@
 				</div>
 				<div class="input_container">
 					<br>
-					<div class="cta color-2">מחכה לטלפון ממך</div>
+					<div class="cta color-2">
+						<?php print_option('hp_contact_form_btn'); ?>
+					</div>
 				</div>
 				<div class="message">
-					<img src="img/profile_circle.png" alt="הילה ויטקובסקי פרץ" />
-					<p>אני אחזור אליך תוך יום עסקים אחד</p>
+					<img src="<?php print_option('hp_contact_message_image'); ?>" alt="הילה ויטקובסקי פרץ" />
+					<p>
+						<?php print_option('hp_contact_message_text'); ?>
+					</p>
 				</div>
 			</div>
 
 			<div class="box self">
 				<div class="phone">
-					<h3>רוצה להרים לי טלפון?</h3>
+					<h3>
+						<?php print_option('hp_contact_phone_title'); ?>
+					</h3>
 					<img src="img/phone.png" alt="" />
 					<p>
-						אפשר לדבר על הכל<br/>
-						אם אני לא זמינה אני חוזרת תוך כמה שעות
+						<?php print_option('hp_contact_phone_text'); ?>
 					</p>
-					<a class="cta color-4" href="">לחיוג אליי</a>
+					<a class="cta color-4" href="">
+						<?php print_option('hp_contact_phone_btn'); ?>
+					</a>
 				</div>
 
 				<div class="mail">
-					<h3>רוצה לשלוח לי מייל?</h3>
+					<h3>
+						<?php print_option('hp_contact_mail_title'); ?>
+					</h3>
 					<img src="img/email.png" alt="" />
 					<p>
-						אני בדר"כ עונה תוך יום יומיים<br/>
-						דיסקרטיות מובטחת
+						<?php print_option('hp_contact_mail_text'); ?>
 					</p>
-					<a class="cta color-4" href="">לשליחת מייל</a>
+					<a class="cta color-4" href="">
+						<?php print_option('hp_contact_mail_btn'); ?>
+					</a>
 				</div>
 			</div>
 
 			<div class="box map">
-				<h3>איפה אפשר לפגוש אותי?</h3>
+				<h3>
+					<?php print_option('hp_contact_map_title'); ?>
+				</h3>
 				<p>
-					לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית קוואזי במר מודוף.
+					<?php print_option('hp_contact_map_text'); ?>
 				</p>
 				<br>
 				<div class="places">
-					<p>דליה 16, קריית ביאליק</p>
-					<p>הרופא 10, בנימינה</p>
-					<p>חיים עוזר 13, פתח-תקוה</p>
-					<p>בצלאל 20, תל-אביב</p>
+					<?php print_contact_map_places(); ?>
 				</div>
 				<iframe src="https://www.google.com/maps/d/u/0/embed?mid=1qVhsaO_9ZFItRwqYfdA83MbG5og"></iframe>
 			</div>
@@ -207,9 +237,9 @@
 		</div>
 	</div>
 
-	<div class="section bg-color-10" id="articles">
+	<div class="section" id="articles" style="background-color: <?php print_option('hp_blog_bgcolor'); ?>;">
 		<div class="wrapper">
-			<h2 class="section-title">הצצה לבלוג</h2>
+			<h2 class="section-title"><?php print_option('hp_blog_title'); ?></h2>
 			<h3 class="article-title">כותרת מאמר כותרת מאמר</h3>
 			<span class="article-date">יום שני, 17 ינואר 2017</span>
 			<i> | </i>
@@ -234,25 +264,27 @@
 		</div>
 	</div>
 
-	<div class="section bg-color-9" id="faq">
+	<div class="section" id="faq" style="background-color: <?php print_option('hp_faq_bgcolor'); ?>;">
 		<div class="wrapper">
-			<h2 class="section-title">דברים שכדאי לדעת</h2>
+			<h2 class="section-title">
+				<?php print_option('hp_faq_title'); ?>
+			</h2>
 			<div class="faqContainer">
 				<ul>
-					<li>ורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית?</li>
-					<li>להאמית קרהשק סכעיט דז מא, מנכם למטכין נשואי מנורךגולר?</li>
-					<li>מונפרר סוברט לורם שבצק יהול?</li>
-					<li>לכנוץ בעריר גק ליץ, ושבעגט. סחטיר בלובק.?</li>
-					<li>לפתיעם ברשג - ולתיעם גדדיש. קוויז דומור ליאמום בלינך?</li>
+					<li id="faq_question_1"><?php print_option('hp_faq_question_1'); ?></li>
+					<li id="faq_question_2"><?php print_option('hp_faq_question_2'); ?></li>
+					<li id="faq_question_3"><?php print_option('hp_faq_question_3'); ?></li>
+					<li id="faq_question_4"><?php print_option('hp_faq_question_4'); ?></li>
+					<li id="faq_question_5"><?php print_option('hp_faq_question_5'); ?></li>
 				</ul>
 			</div>
 			<div class="faqContainer">
 				<ul>
-					<li>תצטנפל בלינדו למרקל אס לכימפו, דול, צוט ומעיוט?</li>
-					<li>לפמעט מוסן מנת. הועניב היושבב שערש שמחויט?</li>
-					<li>שלושע ותלברו חשלו שעותלשך וחאית נובש ערששף?</li>
-					<li>זותה מנק הבקיץ אפאח דלאמת יבש?</li>
-					<li>כאנה ניצאחו נמרגי שהכים תוק, הדש שנרא התידם הכייר וק?</li>
+					<li id="faq_question_6"><?php print_option('hp_faq_question_6'); ?></li>
+					<li id="faq_question_7"><?php print_option('hp_faq_question_7'); ?></li>
+					<li id="faq_question_8"><?php print_option('hp_faq_question_8'); ?></li>
+					<li id="faq_question_9"><?php print_option('hp_faq_question_9'); ?></li>
+					<li id="faq_question_10"><?php print_option('hp_faq_question_10'); ?></li>
 				</ul>	
 			</div>
 			<div id="blanket" class="hidden"></div>
@@ -261,16 +293,13 @@
 					<i id="close-btn"></i>
 					<h3>כותרת כותרת כותרת</h3>
 					<p>
-						לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית להאמית קרהשק סכעיט דז מא.<br/>
-						סחטיר בלובק.<br/>
-						תצטנפל בלינדו למרקל אס לכימפו, דול, צוט ומעיוט - לפתיעם ברשג - ולתיעם גדדיש.<br/>
-						קוויז דומור ליאמום בלינך רוגצה.<br/>
-						לפמעט מוסן מנת.<br/>
-						הועניב היושבב שערש שמחויט - שלושע ותלברו חשלו שעותלשך וחאית נובש ערששף.<br/>
-						זותה מנק הבקיץ אפאח דלאמת יבש, כאנה ניצאחו נמרגי שהכים תוק, הדש שנרא התידם הכייר וק.
+						ריק
 					</p>
 				</div>
 			</div>
+
+			<?php print_faq_answers(); ?>
+
 		</div>
 	</div>
 

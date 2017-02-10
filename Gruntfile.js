@@ -6,7 +6,7 @@ module.exports = function(grunt){
 		sass_globbing: {
 			your_traget: {
 				files: {
-					"styles.sass" : "sass/**/*.*"
+					"sass/styles.sass" : "sass/**/*.*"
 				},
 				options: {
 					useSingleQuotes: true
@@ -20,7 +20,7 @@ module.exports = function(grunt){
 			},
 			dist: {
 				files: {
-					"styles.css" : "styles.sass"
+					"styles.css" : "sass/styles.sass"
 				}
 			}
 		},
@@ -79,13 +79,11 @@ module.exports = function(grunt){
 		},
 		browserSync: {
 			bsFiles: {
-				src : ['*.css', '*.html', '*.js', '**/*.css', '**/*.html', '**/*.js']
+				src : ['*.css', '*.html', '*.php', '*.js', '**/*.css', '**/*.html', '**/*.php', '**/*.js']
 			},
 			options: {
 				watchTask: true,
-				server: {
-					baseDir: "./"
-				}
+				proxy: "localhost/gishur"
 			}
 		}
 	});	

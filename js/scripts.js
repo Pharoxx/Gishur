@@ -101,7 +101,11 @@ function setup_print_view(){
 function setup_faq() {
 	$('#faq .faqContainer ul li').click(function(){
 		the_title = $(this).html();
+		the_id = $(this).attr('id').replace(/[^0-9]/g, '');
+		the_content = $('#faq_answer_' + the_id).html();
+		console.log(the_id);
 		$('#faq-popup h3').html(the_title);
+		$('#faq-popup p').html(the_content);
 		$('#faq #blanket, #faq #faq-perspective, #faq #faq-popup').removeClass('hidden');
 		disableScroll();
 	});
